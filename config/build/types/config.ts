@@ -1,4 +1,4 @@
-export type BuildPaths  = {
+export type BuildPaths = {
     entry: string,
     build: string,
     html: string,
