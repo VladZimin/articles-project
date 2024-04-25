@@ -11,13 +11,13 @@ interface SidebarProps {
 
 export const Sidebar = ({ className }:SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
-
     const onToggle = () => {
         setCollapsed((prevState) => !prevState);
     };
 
     return (
         <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <Button onClick={onToggle}>toggle</Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
