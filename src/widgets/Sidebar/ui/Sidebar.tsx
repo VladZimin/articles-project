@@ -16,9 +16,12 @@ export const Sidebar = ({ className }:SidebarProps) => {
     };
 
     return (
-        <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+        <div
+            data-testid="sidebar"
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+        >
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Button onClick={onToggle}>toggle</Button>
+            <Button data-testid="toggle-sidebar-btn" onClick={onToggle}>toggle</Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={cls.lang} />
