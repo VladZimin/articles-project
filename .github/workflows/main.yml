@@ -20,7 +20,7 @@ jobs:
       - name: Install specific package with force flag
         run: npm run install:loki
       - name: install modules
-        run: npm install
+        run: npm install --no-save loki
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
