@@ -17,10 +17,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install specific package with force flag
-        run: npm run install:loki
       - name: install modules
-        run: npm install --no-save loki
+        run: |
+          npm install --no-save loki
+          npm install
+      - name: Install loki package with force flag
+        run: npm install loki --force
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
