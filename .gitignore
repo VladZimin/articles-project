@@ -1,4 +1,6 @@
 node_modules
+.loki/current
+.loki/difference
 .idea
 /build
 *storybook.log
