@@ -18,9 +18,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: npm ci
-      - name: Reinstall loki package with force flag
-        run: npm install loki --force
+        run: npm install --only=production
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
