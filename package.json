@@ -11,7 +11,14 @@
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "unit": "jest --config ./config/jest/jest.config.ts"
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "storybook:build": "storybook build -c ./config/storybook"
+  },
+  "resolutions": {
+    "some-dependency/@storybook/react": "7.6.19"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +28,17 @@
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.24.1",
+    "@chromatic-com/storybook": "^1.4.0",
+    "@storybook/addon-essentials": "^8.1.1",
+    "@storybook/addon-interactions": "^8.1.1",
+    "@storybook/addon-links": "^8.1.1",
+    "@storybook/addon-styling": "^1.3.7",
+    "@storybook/addon-styling-webpack": "^1.0.0",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+    "@storybook/blocks": "^8.1.1",
+    "@storybook/react": "^8.1.1",
+    "@storybook/react-webpack5": "^8.1.1",
+    "@storybook/test": "^8.1.1",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
@@ -43,13 +61,16 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "loki": "^0.35.0",
     "mini-css-extract-plugin": "^2.8.1",
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
+    "storybook": "^8.1.1",
     "style-loader": "^3.3.4",
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",
@@ -70,5 +91,20 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^14.1.0",
     "react-router-dom": "^6.22.3"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
