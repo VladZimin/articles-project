@@ -3,4 +3,5 @@ node_modules
 .loki/difference
 .idea
 /build
+/storybook-static
 *storybook.log
