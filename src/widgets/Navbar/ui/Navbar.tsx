@@ -25,6 +25,7 @@ export const Navbar = ({ className }:NavbarProps) => {
                 {t('Войти')}
             </Button>
             <Modal isOpen={isAuthModal} onClose={toggleAuthModal}>
+                {/* eslint-disable-next-line */}
                 <p>
                     Lorem ipsum dolor sit amet,
                     consectetur adipisicing elit. Ad amet commodi fugit
