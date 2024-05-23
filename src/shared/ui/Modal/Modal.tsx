@@ -2,8 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
+import { Portal } from '../index';
 
 interface ModalProps {
     className?: string
@@ -11,7 +11,7 @@ interface ModalProps {
     isOpen?: boolean
     onClose?: () => void
 }
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 150;
 
 export const Modal = (props: ModalProps) => {
     const {
