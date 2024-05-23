@@ -1,7 +1,8 @@
 node_modules
 .loki/current
 .loki/difference
+.loki/.gitignore
 .idea
-/build
-/storybook-static
+build
+storybook-static
 *storybook.log
