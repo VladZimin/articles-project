@@ -1,16 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { AppLink, AppLinkTheme } from './AppLink';
+import { Input } from './Input';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'shared/AppLink',
-    component: AppLink,
+    title: 'shared/Input',
+    component: Input,
     tags: ['autodocs'],
-    args: {
-        to: '/',
-    },
-} satisfies Meta<typeof AppLink>;
+} satisfies Meta<typeof Input>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -18,15 +15,16 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
     args: {
-        children: 'Link',
-        theme: AppLinkTheme.PRIMARY,
+        type: 'text',
+        placeholder: 'Enter text',
     },
     decorators: [ThemeDecorator(Theme.LIGHT)],
 };
-export const Inverted: Story = {
+export const Autofocus: Story = {
     args: {
-        children: 'Link',
-        theme: AppLinkTheme.INVERTED,
+        type: 'text',
+        placeholder: 'Enter text',
+        autoFocus: true,
     },
     decorators: [ThemeDecorator(Theme.LIGHT)],
 };
