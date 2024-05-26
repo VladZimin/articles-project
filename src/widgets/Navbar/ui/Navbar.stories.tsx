@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Navbar } from 'widgets/Navbar';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { Navbar } from './Navbar';
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+
 const meta = {
     title: 'widget/Navbar',
     component: Navbar,
@@ -13,10 +13,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Light: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)],
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        StoreDecorator({
+            loginForm: { isLoading: true },
+        }),
+    ],
 };
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            loginForm: { isLoading: true },
+        }),
+    ],
+};
+export const Authorized: Story = {
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            user: { authData: {} },
+        }),
+    ],
 };

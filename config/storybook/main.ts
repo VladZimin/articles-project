@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
+import webpack from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 const config: StorybookConfig = {
@@ -28,6 +29,9 @@ const config: StorybookConfig = {
         },
     }),
     webpackFinal: async (config) => {
+        config.plugins.push(new webpack.DefinePlugin({
+            __IS_DEV__: true,
+        }));
         config.module.rules.push(buildCssLoader(true));
         // eslint-disable-next-line no-param-reassign
         config.resolve.modules = [
@@ -43,6 +47,7 @@ const config: StorybookConfig = {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
+
         return config;
     },
 };
