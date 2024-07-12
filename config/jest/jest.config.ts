@@ -32,8 +32,12 @@ export default {
     ],
     rootDir: '../../',
     moduleNameMapper: {
+        '^axios$': require.resolve('axios'),
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
     },
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    transform: {
+        '^.+\\.[tj]sx?$': 'babel-jest',
+    },
 };

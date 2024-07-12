@@ -7,7 +7,7 @@ interface LoginByUsernameArg {
     username: string;
     password: string;
 }
-export const loginByUsername = createAsyncThunk<undefined, LoginByUsernameArg, {rejectValue: string}>(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameArg, {rejectValue: string}>(
     'login/loginByUsername',
     async (authData, thunkAPI) => {
         const { dispatch, rejectWithValue } = thunkAPI;
@@ -19,7 +19,7 @@ export const loginByUsername = createAsyncThunk<undefined, LoginByUsernameArg, {
             }
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(res.data));
             dispatch(userActions.setUserData(res.data));
-            return undefined;
+            return res.data;
         } catch (e) {
             return rejectWithValue('Error');
         }
