@@ -11,7 +11,7 @@ export const PageError = ({ className }:PageErrorProps) => {
     const { t } = useTranslation();
 
     const reloadApp = () => {
-        // eslint-disable-next-line no-restricted-globals
+        // eslint-disable-next-line
         location.reload();
     };
     return (

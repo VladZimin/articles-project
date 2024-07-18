@@ -2,10 +2,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme, Text } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
 import { selectLoginPassword } from '../../model/selectors/selectLoginPassword/selectLoginPassword';
 import { selectLoginError } from '../../model/selectors/selectLoginError/selectLoginError';
@@ -16,14 +17,15 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
     className?: string
+    onSuccess: () => void
 }
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer,
 };
-const LoginForm = memo(({ className }:LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }:LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const username = useSelector(selectLoginUsername);
     const password = useSelector(selectLoginPassword);
     const error = useSelector(selectLoginError);
@@ -35,9 +37,12 @@ const LoginForm = memo(({ className }:LoginFormProps) => {
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
     }, [dispatch]);
-    const onSubmitForm = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, username, password]);
+    const onSubmitForm = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, username, password]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
