@@ -6,6 +6,7 @@ import { Suspense, useEffect } from 'react';
 import { AppRouter } from 'app/providers/router';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
+import { useNavigate } from 'react-router-dom';
 
 export const App = () => {
     const { theme } = useTheme();
