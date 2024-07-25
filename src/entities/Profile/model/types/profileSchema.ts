@@ -3,7 +3,7 @@ import { Countries, Currency } from 'shared/const/common';
 export type Profile = {
     first: string,
     lastname: string,
-    age: 27,
+    age: number,
     currency: Currency,
     country: Countries,
     city: string,
@@ -12,8 +12,8 @@ export type Profile = {
 }
 
 export type ProfileSchema = {
-    data?: ProfileSchema
+    data?: Profile
     isLoading: boolean
-    error?: boolean
+    error?: string
     readonly: boolean
 }

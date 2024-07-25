@@ -20,7 +20,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     }
 
     componentDidCatch(error: Error, info: ErrorInfo) {
-        // You can also log the error to an error-reporting service
+        // You can also log the error to an error-reporting services
         // eslint-disable-next-line no-console
         console.log(error);
     }

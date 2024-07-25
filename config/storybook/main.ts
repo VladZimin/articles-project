@@ -29,22 +29,21 @@ const config: StorybookConfig = {
         },
     }),
     webpackFinal: async (config) => {
-        config.plugins.push(new webpack.DefinePlugin({
+        config!.plugins!.push(new webpack.DefinePlugin({
             __IS_DEV__: true,
             __API__: '',
         }));
-        config.module.rules.push(buildCssLoader(true));
-        // eslint-disable-next-line no-param-reassign
-        config.resolve.modules = [
-            ...(config.resolve.modules || []),
+        config.module!.rules!.push(buildCssLoader(true));
+        config.resolve!.modules = [
+            ...(config.resolve!.modules || []),
             path.resolve(__dirname, '../../src'),
         ];
-        const fileLoaderRule = config.module.rules.find(
+        const fileLoaderRule = config.module!.rules!.find(
             (rule: any) => rule.test as string && rule.test.test('.svg'),
         );
         // @ts-ignore
         fileLoaderRule.exclude = /\.svg$/;
-        config.module.rules.push({
+        config.module!.rules!.push({
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
