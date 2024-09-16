@@ -4,7 +4,7 @@ import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserAuthData, userActions } from '../../../entities/User';
+import { getUserAuthData, userActions } from '../../../entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -14,7 +14,7 @@ interface NavbarProps {
 export const Navbar = memo(({ className }:NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const dispatch = useDispatch();
-    const authData = useSelector(selectUserAuthData);
+    const authData = useSelector(getUserAuthData);
     const { t } = useTranslation();
 
     const onCloseModal = () => {

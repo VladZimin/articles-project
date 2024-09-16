@@ -1,0 +1,13 @@
+.ProfilePageHeader {
+    display: flex;
+    margin-bottom: 20px;
+
+    .editBtn,
+    .canselBtn {
+        margin-left: auto;
+    }
+
+    .saveBtn {
+        margin-left: 10px;
+    }
+}

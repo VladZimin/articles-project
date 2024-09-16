@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "first": "Владислав",
+    "first": "Владжан",
     "lastname": "Зимин",
     "age": 27,
-    "currency": "RUB",
-    "country": "Russia",
+    "currency": "USD",
+    "country": "Kyrgyzstan",
     "city": "Yekaterinburg",
     "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    "avatar": "https://cdn3.iconfinder.com/data/icons/roles-computer-it/128/front-end_developer-2-1024.png"
   }
 }

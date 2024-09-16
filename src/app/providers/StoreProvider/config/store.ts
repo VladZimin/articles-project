@@ -25,7 +25,7 @@ export const createReduxStore = (
             reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
             devTools: __IS_DEV__,
             preloadedState: initialState,
-            middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            middleware: (getDefaultMiddleware: any) => getDefaultMiddleware({
                 thunk: {
                     extraArgument: extraArgs,
                 },
