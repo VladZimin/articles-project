@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useEffect } from 'react';
+import {
+    memo, useCallback, useEffect, useMemo,
+} from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -38,15 +40,17 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
     const validateErrors = useSelector(getProfileValidateErrors);
     const { t } = useTranslation('profile');
 
-    const validateErrorTranslates = {
+    const validateErrorTranslates = useMemo(() => ({
         [ValidateProfileError.INVALID_USER_DATA]: t('Имя и фамилия обязятельно'),
         [ValidateProfileError.INVALID_AGE_DATA]: t('Некорректный возраст'),
         [ValidateProfileError.INVALID_COUNTRY_DATA]: t('Некорректный регион'),
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
-    };
+    }), [t]);
     useEffect(() => {
-        dispatch(fetchUserProfile());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchUserProfile());
+        }
     }, [dispatch]);
 
     const updateFirstName = useCallback((value?: string) => {
