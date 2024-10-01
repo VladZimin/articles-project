@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Currency } from '../../../../Currency';
 import { Countries } from '../../../../Country';
-import { fetchUserProfile } from './fetchUserProfile';
+import { fetchArticleById } from './fetchArticleById';
 
 const data = {
     first: 'Vlad',
@@ -13,22 +13,22 @@ const data = {
     country: Countries.KYRGYZSTAN,
 };
 
-describe('Async thunk fetch user profile', () => {
+describe('Async thunk fetch article by id', () => {
     test('success fetching', async () => {
-        const thunk = new TestAsyncThunk(fetchUserProfile);
+        const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({
             data,
         }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.dispatch).toHaveBeenCalled();
         expect(result.payload).toEqual(data);
         expect(result.meta.requestStatus).toBe('fulfilled');
     });
     test('reject fetching', async () => {
-        const thunk = new TestAsyncThunk(fetchUserProfile);
+        const thunk = new TestAsyncThunk(fetchArticleById);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(result.meta.requestStatus).toBe('rejected');
     });

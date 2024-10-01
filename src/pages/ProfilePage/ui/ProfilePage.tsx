@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import {
     memo, useCallback, useEffect, useMemo,
 } from 'react';
-import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ import {
 interface ProfilePageProps {
     className?: string
 }
-const reducers = {
+const reducers: ReducersList = {
     profile: profileReducer,
 };
 
