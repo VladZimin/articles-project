@@ -1,13 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    memo, useCallback, useEffect, useMemo,
-} from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui';
 import { TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Countries } from '../../../entities/Country';
 import { Currency } from '../../../entities/Currency';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -47,11 +46,10 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
     }), [t]);
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchUserProfile());
-        }
-    }, [dispatch]);
+
+    useInitialEffect(() => {
+        dispatch(fetchUserProfile());
+    });
 
     const updateFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateProfileForm({ first: value || '' }));
