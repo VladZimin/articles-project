@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "text": "Салам Алейкум",
+      "articleId": "1",
+      "userId": "1",
+      "id": "o0pPHor"
+    },
+    {
+      "text": "Здарова",
+      "articleId": "1",
+      "userId": "2",
+      "id": "7UoRUiW"
+    },
+    {
+      "text": "Как ты?",
+      "articleId": "1",
+      "userId": "2",
+      "id": "7ZcIJJb"
+    },
+    {
+      "text": "w2w",
+      "articleId": "1",
+      "userId": "2",
+      "id": "LlQW2Q_"
     }
   ],
   "users": [
@@ -118,14 +144,28 @@
       "avatar": "https://avatars.mds.yandex.net/i?id=c4b126d0d6ca7d915252f911e7dd6996_l-9106864-images-thumbs&n=13"
     }
   ],
-  "profile": {
-    "first": "Влад",
-    "lastname": "Зимин",
-    "age": 28,
-    "currency": "USD",
-    "country": "Kyrgyzstan",
-    "city": "Yekaterinburg",
-    "username": "admin",
-    "avatar": "https://cdn3.iconfinder.com/data/icons/roles-computer-it/128/front-end_developer-2-1024.png"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Влад",
+      "lastname": "Зимин",
+      "age": 28,
+      "currency": "USD",
+      "country": "Kyrgyzstan",
+      "city": "Bishkek",
+      "username": "admin",
+      "avatar": "https://cdn3.iconfinder.com/data/icons/roles-computer-it/128/front-end_developer-2-1024.png"
+    },
+    {
+      "id": "2",
+      "first": "Давлад",
+      "lastname": "Хапов",
+      "age": 27,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Yekaterinburg",
+      "username": "user",
+      "avatar": "https://avatars.mds.yandex.net/i?id=c4b126d0d6ca7d915252f911e7dd6996_l-9106864-images-thumbs&n=13"
+    }
+  ]
 }

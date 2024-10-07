@@ -4,12 +4,19 @@ import AboutIcon from 'shared/assets/icons/about-icon.svg';
 import ProfileIcon from 'shared/assets/icons/profile-icon.svg';
 import ArticleIcon from 'shared/assets/icons/article-icon.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
 export type SidebarItemType = {
     path: string
     text: string
     Icon: React.VFC<React.SVGProps<SVGSVGElement>>
     authOnly?: boolean
+}
+
+const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+let userId;
+if (user) {
+    userId = JSON.parse(user).id;
 }
 
 export const SidebarItemList: SidebarItemType[] = [
@@ -25,7 +32,7 @@ export const SidebarItemList: SidebarItemType[] = [
     },
     {
         text: 'Профиль',
-        path: RoutePath.profile,
+        path: RoutePath.profile + userId,
         Icon: ProfileIcon,
         authOnly: true,
     },

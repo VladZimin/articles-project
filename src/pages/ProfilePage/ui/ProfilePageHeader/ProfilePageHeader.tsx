@@ -3,17 +3,23 @@ import { Button, ButtonTheme, Text } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { profileActions, updateUserProfile } from '../../../../entities/Profile';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
     className?: string
     readonly?: boolean
+    userId?: string
 }
 
-export const ProfilePageHeader = ({ className, readonly }:ProfilePageHeaderProps) => {
+export const ProfilePageHeader = ({ className, readonly, userId }:ProfilePageHeaderProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profile');
+    const authData = useSelector(getUserAuthData);
+
+    const isAuthUserProfile = authData?.id === userId;
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
@@ -28,7 +34,7 @@ export const ProfilePageHeader = ({ className, readonly }:ProfilePageHeaderProps
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
             <Text title={t('Профиль')} />
             {
-                readonly
+                isAuthUserProfile && (readonly
                     ? (
                         <Button
                             className={cls.editBtn}
@@ -55,7 +61,7 @@ export const ProfilePageHeader = ({ className, readonly }:ProfilePageHeaderProps
                                 {t('Сохранить')}
                             </Button>
                         </>
-                    )
+                    ))
             }
         </div>
     );

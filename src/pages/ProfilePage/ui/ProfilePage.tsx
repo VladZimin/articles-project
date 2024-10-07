@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui';
 import { TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { Countries } from '../../../entities/Country';
 import { Currency } from '../../../entities/Currency';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -38,6 +39,7 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
     const { t } = useTranslation('profile');
+    const { id } = useParams<{id: string}>();
 
     const validateErrorTranslates = useMemo(() => ({
         [ValidateProfileError.INVALID_USER_DATA]: t('Имя и фамилия обязятельно'),
@@ -48,7 +50,7 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
     }), [t]);
 
     useInitialEffect(() => {
-        dispatch(fetchUserProfile());
+        dispatch(fetchUserProfile(id));
     });
 
     const updateFirstName = useCallback((value?: string) => {
@@ -77,9 +79,9 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
-                <ProfilePageHeader readonly={readonly} />
+                <ProfilePageHeader readonly={readonly} userId={id} />
                 {validateErrors?.map((err) => (
                     <Text
                         key={err}
