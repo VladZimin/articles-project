@@ -13,7 +13,7 @@ export const Avatar = (props:AvatarProps) => {
     const {
         className,
         src,
-        alt,
+        alt = 'Avatar',
         size,
     } = props;
 

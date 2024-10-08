@@ -1,13 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
-import { Text } from 'shared/ui';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Button, Text } from 'shared/ui';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import {
     addCommentForArticle,
 } from '../model/services/addCommentForArticle/addCommentForArticle';
@@ -32,11 +33,15 @@ const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     useInitialEffect(() => {
         dispatch(fetchCommentsById(id));
     });
 
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.article);
+    }, [navigate]);
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
@@ -51,6 +56,9 @@ const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+                <Button onClick={onBackToList}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} text={t('Комментарии')} />
                 <AddCommentForm onSendComment={onSendComment} />
