@@ -6,7 +6,7 @@ import { Comment } from '../../../../../entities/Comment';
 import { getArticleDetailsData } from '../../../../../entities/Article';
 
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
-    'article/addCommentForArticle',
+    'articleDetailsPage/addCommentForArticle',
     async (text, thunkAPI) => {
         const {
             dispatch, rejectWithValue, extra, getState,

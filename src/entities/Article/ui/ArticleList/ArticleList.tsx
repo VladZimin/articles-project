@@ -7,7 +7,7 @@ import { Article, ArticleView } from '../../model/types/article';
 interface ArticleListProps {
     className?: string
     view?: ArticleView
-    articles: Article[]
+    articles?: Article[]
     isLoading?: boolean
 }
 
@@ -42,7 +42,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles.map(renderArticle)}
+            {articles?.map(renderArticle)}
         </div>
     );
 };
