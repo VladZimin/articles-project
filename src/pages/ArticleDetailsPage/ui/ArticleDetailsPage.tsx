@@ -9,6 +9,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import {
     addCommentForArticle,
 } from '../model/services/addCommentForArticle/addCommentForArticle';
@@ -55,7 +56,7 @@ const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
     }
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
                 <Button onClick={onBackToList}>
                     {t('Назад к списку')}
                 </Button>
@@ -66,7 +67,7 @@ const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

@@ -8,6 +8,7 @@ import { Text } from 'shared/ui';
 import { TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { Countries } from '../../../entities/Country';
 import { Currency } from '../../../entities/Currency';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -80,7 +81,7 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <ProfilePageHeader readonly={readonly} userId={id} />
                 {validateErrors?.map((err) => (
                     <Text
@@ -103,7 +104,7 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
                     updateCurrency={updateCurrency}
                     updateCountry={updateCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });
