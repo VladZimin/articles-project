@@ -4,12 +4,12 @@ import { memo, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Text } from 'shared/ui';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import {
     addCommentForArticle,
 } from '../model/services/addCommentForArticle/addCommentForArticle';
@@ -31,7 +31,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
     const { t } = useTranslation('articles');
     const { id } = useParams<{id: string }>();
-    const comments = useSelector(getArticleComments.selectAll);
+    const comments = useSelector(getArticleComments.selectAll, shallowEqual);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();

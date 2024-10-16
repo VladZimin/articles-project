@@ -10,9 +10,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 
 export interface StateSchema {
     user: UserSchema;
+    scroll: ScrollRestorationSchema
 
     // Асинхронные редюсеры
     articleDetails?: ArticleDetailsSchema
