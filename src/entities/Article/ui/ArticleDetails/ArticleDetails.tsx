@@ -108,7 +108,7 @@ export const ArticleDetails = ({ className, id }:ArticleDetailsProps) => {
         );
     }
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </div>

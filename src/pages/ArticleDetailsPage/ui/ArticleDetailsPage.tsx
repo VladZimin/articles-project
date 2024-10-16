@@ -55,7 +55,7 @@ const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
         );
     }
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
                 <Button onClick={onBackToList}>
                     {t('Назад к списку')}

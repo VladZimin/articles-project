@@ -19,7 +19,7 @@ export const Input = memo((props: InputProps) => {
     const {
         className,
         onChange,
-        value,
+        value = '',
         type = 'text',
         placeholder,
         autoFocus,

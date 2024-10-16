@@ -7,3 +7,4 @@ export const getArticlesView = (state: StateSchema) => state.articles?.view ?? A
 export const getArticlesPage = (state: StateSchema) => state.articles?.page ?? 1;
 export const getArticlesLimit = (state: StateSchema) => state.articles?.limit ?? 9;
 export const getArticlesHasMore = (state: StateSchema) => state.articles?.hasMore ?? true;
+export const getArticlesInited = (state: StateSchema) => state.articles?._inited ?? false;

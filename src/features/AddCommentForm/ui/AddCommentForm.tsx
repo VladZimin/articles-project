@@ -33,7 +33,7 @@ const AddCommentForm = ({ className, onSendComment }:AddCommentFormProps) => {
     }, [dispatch, onSendComment, text]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input
                     className={cls.input}

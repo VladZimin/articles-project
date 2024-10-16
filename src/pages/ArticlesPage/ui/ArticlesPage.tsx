@@ -7,8 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Page } from 'shared/ui/Page/Page';
 import { useCallback } from 'react';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPage } from '../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
-import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
 import { getArticlesIsLoading, getArticlesView } from '../model/selectors/articles/articles';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
@@ -27,10 +27,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initView());
-        dispatch(fetchArticles({
-            page: 1,
-        }));
+        dispatch(initArticlesPage());
     });
 
     const onChangeView = useCallback((newView: ArticleView) => {

@@ -7,6 +7,8 @@ import { memo, useCallback } from 'react';
 import { TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
 import { selectLoginPassword } from '../../model/selectors/selectLoginPassword/selectLoginPassword';
 import { selectLoginError } from '../../model/selectors/selectLoginError/selectLoginError';
@@ -25,6 +27,7 @@ const initialReducers: ReducersList = {
 };
 const LoginForm = memo(({ className, onSuccess }:LoginFormProps) => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const username = useSelector(selectLoginUsername);
     const password = useSelector(selectLoginPassword);
@@ -41,8 +44,9 @@ const LoginForm = memo(({ className, onSuccess }:LoginFormProps) => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess?.();
+            navigate(RoutePath.about);
         }
-    }, [onSuccess, dispatch, username, password]);
+    }, [dispatch, username, password, onSuccess, navigate]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
