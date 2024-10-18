@@ -4,20 +4,20 @@ import {
 } from 'react';
 import cls from './Select.module.scss';
 
-interface SelectOptions {
-    value: string;
+export interface SelectOptions<T extends string> {
+    value: T;
     content: string
 }
-interface AvatarProps {
+interface AvatarProps<T extends string> {
     className?: string
     label?: string
-    options?: SelectOptions[]
-    value?: string
-    updateSelect?: (value: string) => void
+    options?: SelectOptions<T>[]
+    value?: T
+    updateSelect?: (value: T) => void
     readonly?: boolean
 }
 
-export const Select = memo((props:AvatarProps) => {
+export const Select = <T extends string>(props:AvatarProps<T>) => {
     const {
         className,
         label,
@@ -38,7 +38,7 @@ export const Select = memo((props:AvatarProps) => {
     )), [options]);
 
     const onChangeSelect = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-        updateSelect?.(e.target.value);
+        updateSelect?.(e.target.value as T);
     }, [updateSelect]);
 
     return (
@@ -58,4 +58,4 @@ export const Select = memo((props:AvatarProps) => {
             </select>
         </div>
     );
-});
+};
