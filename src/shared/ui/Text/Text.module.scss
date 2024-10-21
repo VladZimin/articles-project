@@ -6,6 +6,12 @@
     color: var(--secondary-color);
 }
 
+.inverted {
+    .title {
+        color: var(--inverted-primary-color);
+    }
+}
+
 .size_m {
     .title {
         font: var(--font-l);

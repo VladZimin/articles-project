@@ -1,9 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui';
+import {
+    AppLink, AppLinkTheme, Button, ButtonTheme, Text,
+} from 'shared/ui';
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
+import { TextSize, TextTheme } from 'shared/ui/Text/Text';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { getUserAuthData, userActions } from '../../../entities/User';
 import cls from './Navbar.module.scss';
 
@@ -28,7 +32,11 @@ export const Navbar = memo(({ className }:NavbarProps) => {
     };
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text size={TextSize.L} title="Dev Art" theme={TextTheme.INVERTED} className={cls.appName} />
+                <AppLink to={RoutePath.articleCreate} theme={AppLinkTheme.INVERTED}>
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     className={cls.links}
                     onClick={onLogout}
@@ -36,7 +44,7 @@ export const Navbar = memo(({ className }:NavbarProps) => {
                 >
                     {t('Выйти')}
                 </Button>
-            </div>
+            </header>
         );
     }
     return (
