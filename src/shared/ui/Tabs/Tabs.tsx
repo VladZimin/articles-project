@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Card, CardTheme } from 'shared/ui/Card/Card';
 import { ReactNode, useCallback } from 'react';
 import { ArticleType } from 'entities/Article/model/types/article';
+import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabType {

@@ -11,8 +11,8 @@ import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { SortOrder } from 'shared/types';
-import { fetchArticles } from 'pages/ArticlesPage/model/services/fetchArticles/fetchArticles';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import {
     getArticlesOrder,
     getArticlesSearch,

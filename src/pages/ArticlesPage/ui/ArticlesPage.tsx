@@ -6,8 +6,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from 'widgets/Page/Page';
 import { useCallback } from 'react';
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
+import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPage } from '../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import { getArticlesIsLoading, getArticlesView } from '../model/selectors/articles';
