@@ -9,6 +9,7 @@ import { TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Countries } from '../../../entities/Country';
 import { Currency } from '../../../entities/Currency';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -82,28 +83,30 @@ const ProfilePage = memo(({ className }:ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames('', {}, [className])}>
-                <ProfilePageHeader readonly={readonly} userId={id} />
-                {validateErrors?.map((err) => (
-                    <Text
-                        key={err}
-                        theme={TextTheme.ERROR}
-                        text={validateErrorTranslates[err]}
+                <VStack gap="16" max>
+                    <ProfilePageHeader readonly={readonly} userId={id} />
+                    {validateErrors?.map((err) => (
+                        <Text
+                            key={err}
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslates[err]}
+                        />
+                    ))}
+                    <ProfileCard
+                        data={formProfileData}
+                        error={error}
+                        isLoading={isLoading}
+                        readonly={readonly}
+                        updateFirstName={updateFirstName}
+                        updateLastName={updateLastName}
+                        updateAge={updateAge}
+                        updateCity={updateCity}
+                        updateAvatar={updateAvatar}
+                        updateUsername={updateUsername}
+                        updateCurrency={updateCurrency}
+                        updateCountry={updateCountry}
                     />
-                ))}
-                <ProfileCard
-                    data={formProfileData}
-                    error={error}
-                    isLoading={isLoading}
-                    readonly={readonly}
-                    updateFirstName={updateFirstName}
-                    updateLastName={updateLastName}
-                    updateAge={updateAge}
-                    updateCity={updateCity}
-                    updateAvatar={updateAvatar}
-                    updateUsername={updateUsername}
-                    updateCurrency={updateCurrency}
-                    updateCountry={updateCountry}
-                />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );
