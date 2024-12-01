@@ -2,14 +2,16 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Countries } from '../model/types/country';
 
 interface CountrySelectProps {
-    className?: string
-    updateCountry?: (country: Countries) => void
-    value?: Countries
-    readonly?: boolean
+  className?: string
+  updateCountry?: (country: Countries) => void
+  value?: Countries
+  readonly?: boolean
 }
+
 const optionsCountries = [
     { value: Countries.RUSSIA, content: Countries.RUSSIA },
     { value: Countries.BELARUS, content: Countries.BELARUS },
@@ -31,13 +33,16 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     }, [updateCountry]);
 
     return (
-        <Select
+        <ListBox
             className={classNames('', {}, [className])}
-            label={t('Страна')}
-            options={optionsCountries}
-            updateSelect={onUpdateSelect}
+            items={optionsCountries}
+            onChange={onUpdateSelect}
             value={value}
             readonly={readonly}
+            defaultValue={t('Укажите страну')}
+            label={t('Страна')}
+            direction="top"
         />
+
     );
 });
