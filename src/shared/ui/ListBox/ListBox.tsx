@@ -1,7 +1,8 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { DirectionType } from 'shared/types/ui';
+import { HStack } from '../Stack/HStack/HStack';
 import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
 
@@ -10,7 +11,6 @@ interface ListBoxItem {
   content: ReactNode
   disabled?: boolean
 }
-type DirectionType = 'top' | 'bottom'
 interface ListBoxProps {
   className?: string;
   items: ListBoxItem[]
@@ -23,14 +23,15 @@ interface ListBoxProps {
 }
 
 const directionClasses: Record<DirectionType, string> = {
-    top: cls.contentTop,
-    bottom: cls.contentBottom,
+    'top left': cls.contentTopLeft,
+    'top right': cls.contentTopRight,
+    'bottom left': cls.contentBottomLeft,
+    'bottom right': cls.contentBottomRight,
 };
 export function ListBox(props: ListBoxProps) {
     const {
-        defaultValue, value, onChange, items, className, readonly = false, direction = 'bottom', label,
+        defaultValue, value, onChange, items, className, readonly = false, direction = 'bottom right', label,
     } = props;
-
     return (
         <HStack gap="4">
             {label && <span>{`${label}>`}</span>}

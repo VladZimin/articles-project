@@ -1,4 +1,4 @@
-.ListBox {
+.Dropdown {
     position: relative;
 }
 
@@ -8,15 +8,18 @@
     padding: 0;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .content {
     position: absolute;
-    border-radius: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
     background-color: var(--listbox-bg);
     z-index: 10000;
     box-shadow: 4px 4px 8px var(--listbox-bg);
-    min-width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .contentTopLeft {
@@ -39,14 +42,16 @@
     left: 0;
 }
 
-.option {
-    padding: 10px 20px;
+.item {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    width: 100%;
+    cursor: pointer;
 }
 
 .active {
-    background-color: var(--inverted-primary-color);
-}
-
-.disabled {
-    opacity: 0.7;
+    border-radius: 8px;
+    background: var(--inverted-primary-color);
 }
