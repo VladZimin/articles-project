@@ -583,6 +583,18 @@
       "articleId": "19",
       "userId": "1",
       "id": "uZgbLhm"
+    },
+    {
+      "text": "sdsdsd",
+      "articleId": "7",
+      "userId": "1",
+      "id": "XCSISy1"
+    },
+    {
+      "text": "sfdfdf",
+      "articleId": "7",
+      "userId": "1",
+      "id": "3ofZ9sQ"
     }
   ],
   "users": [
@@ -607,7 +619,7 @@
       "first": "Влад",
       "lastname": "Зимин",
       "age": 28,
-      "currency": "EUR",
+      "currency": "RUB",
       "country": "Russia",
       "city": "Bishkek",
       "username": "admin",

@@ -39,6 +39,9 @@ export default {
         '\\.svg': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
     },
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    transformIgnorePatterns: [
+        'node_modules/(?!(module_name|@reduxjs/toolkit)/)',
+    ],
     transform: {
         '^.+\\.[tj]sx?$': 'babel-jest',
     },

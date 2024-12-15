@@ -6,15 +6,16 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import { profileActions, updateUserProfile } from '../../../../entities/Profile';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateUserProfile } from '../../model/services/updateUserProfile/updateUserProfile';
 
 interface ProfilePageHeaderProps {
-    className?: string
-    readonly?: boolean
-    userId?: string
+  className?: string
+  readonly?: boolean
+  userId?: string
 }
 
-export const ProfilePageHeader = ({ className, readonly, userId }:ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = ({ className, readonly, userId }:ProfilePageHeaderProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);

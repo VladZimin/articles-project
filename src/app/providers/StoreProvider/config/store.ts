@@ -3,6 +3,7 @@ import { createReducerManager } from 'app/providers/StoreProvider/config/reducer
 import { $api } from 'shared/api/api';
 import { CombinedState } from 'redux';
 import { scrollRestorationReducer } from 'features/ScrollRestoration';
+import { rtkQueryApi } from 'shared/api/rtkQueryApi';
 import { userReducer } from '../../../../entities/User';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
@@ -14,6 +15,7 @@ export const createReduxStore = (
         ...asyncReducers,
         user: userReducer,
         scroll: scrollRestorationReducer,
+        [rtkQueryApi.reducerPath]: rtkQueryApi.reducer,
     };
     const extraArgs: ThunkExtraArg = {
         api: $api,
@@ -28,7 +30,7 @@ export const createReduxStore = (
                 thunk: {
                     extraArgument: extraArgs,
                 },
-            }),
+            }).concat(rtkQueryApi.middleware),
         },
     );
     // @ts-ignore

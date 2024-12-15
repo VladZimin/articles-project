@@ -1,9 +1,9 @@
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { Action } from '@reduxjs/toolkit';
-import {
-    profileActions, profileReducer, ProfileSchema, updateUserProfile, ValidateProfileError,
-} from '../../../Profile';
+import { ProfileSchema, ValidateProfileError } from '../types/editableProfileSchema';
+import { updateUserProfile } from '../services/updateUserProfile/updateUserProfile';
+import { profileActions, profileReducer } from './profileSlice';
 
 const data = {
     first: 'Vlad',
@@ -71,11 +71,11 @@ describe('Profile slice', () => {
             });
     });
     // test('update profile with rejected status', () => {
-    //     const state: DeepPartial<ProfileSchema> = {
+    //     const state: DeepPartial<EditableProfileSchema> = {
     //         isLoading: true,
     //     };
     //
-    //     expect(profileReducer(state as ProfileSchema, updateUserProfile.rejected({ name: 'error', message: 'Error' }, '')))
+    //     expect(profileReducer(state as EditableProfileSchema, updateUserProfile.rejected({ name: 'error', message: 'Error' }, '')))
     //         .toEqual({
     //             validateErrors: [ValidateProfileError.SERVER_ERROR],
     //             isLoading: false,
