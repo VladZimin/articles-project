@@ -34,7 +34,7 @@ export const ArticleDetailsComments = ({ className, id }:ArticleDetailsCommentsP
     }, [dispatch]);
 
     return (
-        <VStack className={classNames('', {}, [className])} max>
+        <VStack gap="16" className={classNames('', {}, [className])} max>
             <Text size={TextSize.L} text={t('Комментарии')} />
             <AddCommentForm onSendComment={onSendComment} />
             <CommentList
