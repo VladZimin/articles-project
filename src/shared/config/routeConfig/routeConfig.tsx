@@ -6,6 +6,9 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ArticleEditPage } from 'pages/ArticleEditPage/ui/ArticleEditPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { UserRole } from 'entities/User/model/types/userSchema';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -15,6 +18,8 @@ export enum AppRoutes {
     ARTICLES_DETAILS = 'articleDetails',
     ARTICLES_CREATE = 'articleCreate',
     ARTICLES_EDIT = 'articleEdit',
+    ADMIN_PANEL = 'adminPanel',
+    FORBIDDEN = 'forbidden',
     // last
     NOT_FOUND = 'not_found',
 }
@@ -26,10 +31,13 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLES_DETAILS]: '/articles/', // :id
     [AppRoutes.ARTICLES_CREATE]: '/articles/create',
     [AppRoutes.ARTICLES_EDIT]: '/articles/:id/edit',
+    [AppRoutes.ADMIN_PANEL]: '/admin',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
     [AppRoutes.NOT_FOUND]: '*',
 };
 export type AppRouteProps = RouteProps & {
     authOnly?: boolean
+    roles?: UserRole[]
 };
 export const routeConfig: AppRouteProps[] = [
     {
@@ -51,18 +59,29 @@ export const routeConfig: AppRouteProps[] = [
         authOnly: true,
     },
     {
+        path: RoutePath.adminPanel,
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: [UserRole.ADMIN, UserRole.MANAGER],
+    },
+    {
         path: `${RoutePath.articleDetails}:id`,
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     {
-        path: `${RoutePath.articleCreate}`,
+        path: RoutePath.articleCreate,
         element: <ArticleEditPage />,
         authOnly: true,
     },
     {
-        path: `${RoutePath.articleEdit}`,
+        path: RoutePath.articleEdit,
         element: <ArticleEditPage />,
+        authOnly: true,
+    },
+    {
+        path: RoutePath.forbidden,
+        element: <ForbiddenPage />,
         authOnly: true,
     },
     {

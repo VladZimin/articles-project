@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import AboutPage from './AboutPage';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-    title: 'pages/AboutPage',
+    title: 'pages/AdminPanelPage',
     component: AboutPage,
     tags: ['autodocs'],
 } satisfies Meta<typeof AboutPage>;
