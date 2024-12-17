@@ -1,8 +1,8 @@
-@import "reset";
-@import "variables/global";
-@import "themes/normal";
-@import "themes/dark";
-@import "themes/green";
+@use "reset";
+@use "variables/global";
+@use "themes/normal";
+@use "themes/dark";
+@use "themes/green";
 
 .app,
 .app-modal {

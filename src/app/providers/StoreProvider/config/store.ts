@@ -1,7 +1,6 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
-import { CombinedState } from 'redux';
 import { scrollRestorationReducer } from 'features/ScrollRestoration';
 import { rtkQueryApi } from 'shared/api/rtkQueryApi';
 import { userReducer } from '../../../../entities/User';
@@ -23,7 +22,7 @@ export const createReduxStore = (
     const reducerManager = createReducerManager(rootReducer);
     const store = configureStore<StateSchema>(
         {
-            reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
+            reducer: reducerManager.reduce as Reducer<StateSchema>,
             devTools: __IS_DEV__,
             preloadedState: initialState,
             middleware: (getDefaultMiddleware: any) => getDefaultMiddleware({

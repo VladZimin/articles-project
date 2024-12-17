@@ -1,12 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
-import { Text } from 'shared/ui';
+import { Loader, Text } from 'shared/ui';
 import { TextSize } from 'shared/ui/Text/Text';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTranslation } from 'react-i18next';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/comments';
@@ -36,7 +36,9 @@ export const ArticleDetailsComments = ({ className, id }:ArticleDetailsCommentsP
     return (
         <VStack gap="16" className={classNames('', {}, [className])} max>
             <Text size={TextSize.L} text={t('Комментарии')} />
-            <AddCommentForm onSendComment={onSendComment} />
+            <Suspense fallback={<Loader />}>
+                <AddCommentForm onSendComment={onSendComment} />
+            </Suspense>
             <CommentList
                 isLoading={commentsIsLoading}
                 comments={comments}
