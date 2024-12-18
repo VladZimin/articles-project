@@ -3,7 +3,7 @@ import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import cls from './Modal.module.scss';
-import { Portal } from '../index';
+import { Portal } from '../Portal/Portal';
 
 interface ModalProps {
     className?: string
