@@ -3,10 +3,11 @@ import { Text } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { TextSize } from 'shared/ui/Text/Text';
 import { HTMLAttributeAnchorTarget } from 'react';
+import { ArticleView } from '../../model/const/articleConst';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 
 interface ArticleListProps {
     className?: string

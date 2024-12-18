@@ -1,7 +1,8 @@
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { Action } from '@reduxjs/toolkit';
-import { ProfileSchema, ValidateProfileError } from '../types/editableProfileSchema';
+import { ValidateProfileError } from '../const/editableProfileConst';
+import { ProfileSchema } from '../types/editableProfileSchema';
 import { updateUserProfile } from '../services/updateUserProfile/updateUserProfile';
 import { profileActions, profileReducer } from './profileSlice';
 

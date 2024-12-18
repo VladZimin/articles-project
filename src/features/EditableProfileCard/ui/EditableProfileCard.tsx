@@ -11,6 +11,7 @@ import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { ValidateProfileError } from '../model/const/editableProfileConst';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import {
     EditableProfileCardHeader,
@@ -21,7 +22,6 @@ import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getPro
 import {
     getProfileValidateErrors,
 } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileError } from '../model/types/editableProfileSchema';
 import { fetchUserProfile } from '../model/services/fetchUserProfile/fetchUserProfile';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 

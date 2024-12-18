@@ -7,10 +7,11 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HTMLAttributeAnchorTarget } from 'react';
+import { ArticleBlockType, ArticleView } from '../../model/const/articleConst';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    Article, ArticleTextBlock,
 } from '../../model/types/article';
 
 interface ArticleListItemProps {

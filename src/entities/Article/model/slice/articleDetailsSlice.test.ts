@@ -1,7 +1,8 @@
 import { Action } from '@reduxjs/toolkit';
+import { ArticleBlockType, ArticleType } from '../const/articleConst';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { fetchArticleById } from '../service/fetchArticleById/fetchArticleById';
-import { Article, ArticleBlockType, ArticleType } from '../types/article';
+import { Article } from '../types/article';
 import { articleDetailsReducer } from './articleDetailsSlice';
 
 const data: Article = {
