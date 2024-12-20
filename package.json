@@ -28,6 +28,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.24.4",
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "@babel/plugin-transform-typescript": "^7.26.3",
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.24.1",
@@ -75,6 +77,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-swq": "^0.0.5",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
