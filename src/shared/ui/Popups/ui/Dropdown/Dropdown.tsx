@@ -2,9 +2,11 @@ import { Menu } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Fragment, ReactNode } from 'react';
 import { DirectionType } from 'shared/types/ui';
-import { Button, ButtonTheme } from '../Button/Button';
-import { AppLink } from '../AppLink/AppLink';
+import { Button, ButtonTheme } from '../../../Button/Button';
+import { AppLink } from '../../../AppLink/AppLink';
+import popupsCls from '../../styles/popups.module.scss';
 import cls from './Dropdown.module.scss';
+import { directionClasses } from '../../styles/const';
 
 export interface DropdownItem {
   disabled?: boolean;
@@ -20,21 +22,14 @@ interface DropdownProps {
   direction?: DirectionType
 }
 
-const directionClasses: Record<DirectionType, string> = {
-    'top left': cls.contentTopLeft,
-    'top right': cls.contentTopRight,
-    'bottom left': cls.contentBottomLeft,
-    'bottom right': cls.contentBottomRight,
-};
-
 export function Dropdown(props: DropdownProps) {
     const {
         className, trigger, items, direction = 'bottom right',
     } = props;
 
     return (
-        <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-            <Menu.Button className={cls.trigger}>
+        <Menu as="div" className={classNames(popupsCls.popup, {}, [className])}>
+            <Menu.Button className={popupsCls.trigger}>
                 {trigger}
             </Menu.Button>
             <Menu.Items className={classNames(cls.content, {}, [directionClasses[direction]])}>
@@ -44,7 +39,7 @@ export function Dropdown(props: DropdownProps) {
                             theme={ButtonTheme.CLEAR}
                             onClick={item.onClick}
                             disabled={item.disabled}
-                            className={classNames(cls.item, { [cls.active]: active })}
+                            className={classNames(cls.item, { [popupsCls.active]: active })}
                         >
                             {item.content}
                         </Button>
