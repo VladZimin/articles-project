@@ -10,7 +10,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Currency } from 'entities/Currency';
 import { Countries } from 'entities/Country';
 import { ProfileCard } from 'entities/Profile';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ValidateProfileError } from '../model/const/editableProfileConst';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import {
