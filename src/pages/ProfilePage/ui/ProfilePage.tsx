@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Page } from 'widgets/Page/Page';
-import { EditableProfileCard } from 'features/EditableProfileCard/ui/EditableProfileCard';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page/Page';
+import { EditableProfileCard } from '@/features/EditableProfileCard/ui/EditableProfileCard';
 
 interface ProfilePageProps {
     className?: string

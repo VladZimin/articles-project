@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
-import i18forTests from 'shared/config/i18n/i18forTests';
 import { MemoryRouter } from 'react-router-dom';
-import { StoreProvider } from 'app/providers/StoreProvider';
+import i18forTests from '@/shared/config/i18n/i18forTests';
+import { StoreProvider } from '@/app/providers/StoreProvider';
 
 interface ComponentRenderOptions {
     route?: string

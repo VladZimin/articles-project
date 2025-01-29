@@ -1,16 +1,16 @@
-import { Text } from 'shared/ui';
-import { TextTheme } from 'shared/ui/Text/Text';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useCallback, useMemo } from 'react';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Currency } from 'entities/Currency';
-import { Countries } from 'entities/Country';
-import { ProfileCard } from 'entities/Profile';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Text } from '@/shared/ui';
+import { TextTheme } from '@/shared/ui/Text/Text';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Currency } from '@/entities/Currency';
+import { Countries } from '@/entities/Country';
+import { ProfileCard } from '@/entities/Profile';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ValidateProfileError } from '../model/const/editableProfileConst';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import {

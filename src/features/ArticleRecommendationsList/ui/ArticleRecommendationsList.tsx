@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
-import { TextSize } from 'shared/ui/Text/Text';
-import { ArticleList } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui';
+import { TextSize } from '@/shared/ui/Text/Text';
+import { ArticleList } from '@/entities/Article';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { useArticleRecommendationsList } from '../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {

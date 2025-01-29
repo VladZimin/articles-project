@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme, Text } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme, Text } from '@/shared/ui';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getUserAuthData } from '@/entities/User';
+import { HStack } from '@/shared/ui/Stack/HStack/HStack';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateUserProfile } from '../../model/services/updateUserProfile/updateUserProfile';
 

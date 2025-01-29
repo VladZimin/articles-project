@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import '../../src/app/styles/index.scss';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 
 const preview: Preview = {
     parameters: {

@@ -1,7 +1,7 @@
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DirectionType } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DirectionType } from '@/shared/types/ui';
 import { HStack } from '../../../Stack/HStack/HStack';
 import { Button } from '../../../Button/Button';
 import popupsCls from '../../styles/popups.module.scss';

@@ -1,9 +1,9 @@
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 import { StoryFn } from '@storybook/react';
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { profileReducer } from '@/features/EditableProfileCard/model/slice/profileSlice';
 import { articleDetailsReducer } from '../../../../entities/Article';
 
 const defaultAsyncReducers: ReducersList = {

@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
-import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useCallback } from 'react';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Input } from '@/shared/ui/Input/Input';
+import { Button } from '@/shared/ui';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from '@/shared/ui/Stack/HStack/HStack';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slice/addCommentFormSlice';
 import { getAddCommentFormText } from '../model/selectors/getAddCommentForm';
 import cls from './AddCommentForm.module.scss';

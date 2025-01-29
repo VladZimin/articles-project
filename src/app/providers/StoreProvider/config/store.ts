@@ -1,8 +1,8 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
-import { $api } from 'shared/api/api';
-import { scrollRestorationReducer } from 'features/ScrollRestoration';
-import { rtkQueryApi } from 'shared/api/rtkQueryApi';
+import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
+import { $api } from '@/shared/api/api';
+import { scrollRestorationReducer } from '@/features/ScrollRestoration';
+import { rtkQueryApi } from '@/shared/api/rtkQueryApi';
 import { userReducer } from '../../../../entities/User';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 

@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { ReactNode, useCallback } from 'react';
-import { ArticleType } from 'entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleType } from '@/entities/Article';
 import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';
 

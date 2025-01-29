@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { addSearchParams } from 'shared/lib/url/addSearchParams/addSearchParams';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { addSearchParams } from '@/shared/lib/url/addSearchParams/addSearchParams';
 import {
     getArticlesLimit,
     getArticlesOrder,
