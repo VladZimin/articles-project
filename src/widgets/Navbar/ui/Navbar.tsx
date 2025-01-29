@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -11,8 +11,6 @@ import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { HStack } from '@/shared/ui/Stack/HStack/HStack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { NotificationsList } from '@/entities/Notification';
 import { getUserAuthData } from '../../../entities/User';
 import cls from './Navbar.module.scss';
 

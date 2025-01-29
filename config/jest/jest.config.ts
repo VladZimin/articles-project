@@ -37,6 +37,7 @@ export default {
         '^axios$': require.resolve('axios'),
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     transformIgnorePatterns: [
