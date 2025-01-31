@@ -12,7 +12,6 @@ interface DrawerProps {
     className?: string;
     children: ReactNode;
     isOpen?: boolean;
-    lazy?: boolean;
     onClose?: () => void;
 }
 
@@ -24,7 +23,6 @@ const DrawerContent = memo((props: DrawerProps) => {
         children,
         onClose,
         isOpen,
-        lazy,
     } = props;
     const { theme } = useTheme();
     const { Spring, Gesture } = useAnimationLibs();
