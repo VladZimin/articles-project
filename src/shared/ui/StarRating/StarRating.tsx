@@ -19,7 +19,7 @@ export const StarRating = ({
     onSelect,
     size = 30,
 }: StarRatingProps) => {
-    const [selectedStarCount, setSelectedStarCount] = useState(0);
+    const [selectedStarCount, setSelectedStarCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHoverStar = (starValue: number) => () => {
@@ -40,7 +40,7 @@ export const StarRating = ({
         }
     };
     return (
-        <div className={classNames(cls.StarRating, {}, [className])}>
+        <div className={className}>
             {
                 stars.map((starNumber) => (
                     <Icon

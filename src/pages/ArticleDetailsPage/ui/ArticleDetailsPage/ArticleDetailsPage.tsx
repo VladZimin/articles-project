@@ -10,6 +10,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetails } from '../../../../entities/Article';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleRating } from '@/features/ArticleRating';
 
 export interface ArticlesPageProps {
     className?: string
@@ -35,6 +36,7 @@ const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
             <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
+                <ArticleRating articleId={id} />
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} className={cls.commentTitle} />
             </Page>

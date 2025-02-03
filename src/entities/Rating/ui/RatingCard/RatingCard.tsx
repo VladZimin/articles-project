@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card/Card';
 import {
     Button, ButtonTheme, Modal, Text,
@@ -17,8 +16,9 @@ interface RatingCardProps {
   feedbackTitle?: string
   title?: string
   hasFeedback?: boolean
-  onCansel?: (starsCount: number) => void
+  onCancel?: (starsCount: number) => void
   onAccept?: (starsCount: number, feedback?: string) => void
+  rate?: number
 }
 
 export const RatingCard = ({
@@ -26,11 +26,12 @@ export const RatingCard = ({
     feedbackTitle,
     title = 'Ваша оценка:',
     hasFeedback,
-    onCansel,
+    onCancel,
     onAccept,
+    rate = 0,
 }:RatingCardProps) => {
     const { t } = useTranslation();
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [feedback, setFeedback] = useState('');
 
@@ -43,9 +44,9 @@ export const RatingCard = ({
         }
     }, [hasFeedback, onAccept]);
     const cancelHandle = useCallback(() => {
-        onCansel?.(starsCount);
+        onCancel?.(starsCount);
         setIsOpenModal(false);
-    }, [onCansel, starsCount]);
+    }, [onCancel, starsCount]);
     const acceptHandle = useCallback(() => {
         onAccept?.(starsCount, feedback);
         setIsOpenModal(false);
@@ -59,10 +60,10 @@ export const RatingCard = ({
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
+        <Card className={className}>
             <VStack align="center" gap="8">
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+                <Text title={starsCount ? t('Спасибо за отзыв!') : title} />
+                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isOpenModal} onClose={cancelHandle} lazy>
