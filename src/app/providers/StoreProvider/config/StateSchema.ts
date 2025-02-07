@@ -8,7 +8,7 @@ import { ArticleDetailsSchema } from '@/entities/Article';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { ScrollRestorationSchema } from '@/features/ScrollRestoration';
-import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage/model/types';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { rtkQueryApi } from '@/shared/api/rtkQueryApi';
 import { ProfileSchema } from '@/features/EditableProfileCard';
 

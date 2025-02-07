@@ -49,6 +49,9 @@ module.exports = {
         'swq/path-checker': ['error', {
             alias: '@',
         }],
+        'swq/public-api-imports': ['error', {
+            alias: '@',
+        }],
     },
     globals: {
         __IS_DEV__: true,
