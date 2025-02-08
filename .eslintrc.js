@@ -51,6 +51,7 @@ module.exports = {
         }],
         'swq/public-api-imports': ['error', {
             alias: '@',
+            testingPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
         }],
     },
     globals: {
