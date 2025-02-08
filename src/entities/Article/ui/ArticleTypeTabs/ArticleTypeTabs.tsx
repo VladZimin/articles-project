@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Tabs, TabType } from '@/shared/ui/Tabs/Tabs';
 
@@ -32,12 +32,16 @@ export const ArticleTypeTabs = ({ className, tabValue, onChangeTab }:ArticleType
         },
     ], [t]);
 
+    const onTabClick = useCallback((tab: TabType) => {
+        onChangeTab(tab.value as ArticleType);
+    }, [onChangeTab]);
+
     return (
         <Tabs
             className={classNames('', {}, [className])}
             value={tabValue}
             tabs={tabsType}
-            onChangeTab={onChangeTab}
+            onChangeTab={onTabClick}
         />
     );
 };

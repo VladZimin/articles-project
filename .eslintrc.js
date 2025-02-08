@@ -53,6 +53,10 @@ module.exports = {
             alias: '@',
             testingPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
         }],
+        'swq/layer-imports': ['error', {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        }],
     },
     globals: {
         __IS_DEV__: true,

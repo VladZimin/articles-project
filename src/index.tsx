@@ -23,3 +23,5 @@ root.render(
         </StoreProvider>
     </BrowserRouter>,
 );
+export { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+export { Theme } from '@/shared/const/theme';

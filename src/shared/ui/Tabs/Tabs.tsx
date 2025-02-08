@@ -1,18 +1,17 @@
 import { ReactNode, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleType } from '@/entities/Article';
 import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabType {
-  value: ArticleType
+  value: string
   content: ReactNode
 }
 interface TabsProps {
     className?: string
-    value: ArticleType
+    value: string
     tabs: TabType[]
-    onChangeTab: (tab: ArticleType) => void
+    onChangeTab: (tab: TabType) => void
 }
 
 export const Tabs = (props: TabsProps) => {
@@ -20,7 +19,7 @@ export const Tabs = (props: TabsProps) => {
         className, value, tabs, onChangeTab,
     } = props;
 
-    const onTabClick = useCallback((tabValue: ArticleType) => () => {
+    const onTabClick = useCallback((tabValue: TabType) => () => {
         onChangeTab(tabValue);
     }, [onChangeTab]);
 
@@ -31,7 +30,7 @@ export const Tabs = (props: TabsProps) => {
                     key={tab.value}
                     className={cls.tab}
                     theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINE}
-                    onClick={onTabClick(tab.value)}
+                    onClick={onTabClick(tab)}
                 >
                     {tab.content}
                 </Card>
