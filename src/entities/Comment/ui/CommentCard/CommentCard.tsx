@@ -1,8 +1,8 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import { AppLink, Text } from '@/shared/ui';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
 import { RoutePath } from '@/shared/const/router';

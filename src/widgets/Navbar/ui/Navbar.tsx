@@ -6,8 +6,8 @@ import {
     AppLink, AppLinkTheme, Button, ButtonTheme, Text,
 } from '@/shared/ui';
 import { LoginModal } from '@/features/AuthByUsername';
-import { TextSize, TextTheme } from '@/shared/ui/Text/Text';
-import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { TextSize, TextTheme } from '@/shared/ui/Text';
+import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { getUserAuthData } from '../../../entities/User';
