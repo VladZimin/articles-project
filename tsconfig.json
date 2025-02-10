@@ -33,7 +33,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "isolatedModules": true
+    "isolatedModules": true,
   },
   "ts-node": {
     "compilerOptions": {
