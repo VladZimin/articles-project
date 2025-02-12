@@ -22,11 +22,6 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     };
 
     const cssLoader = buildCssLoader(isDev);
-    // const typescriptLoader = {
-    //     test: /\.tsx?$/,
-    //     use: 'ts-loader',
-    //     exclude: /node_modules/,
-    // };
 
     return [
         fileLoader,
@@ -34,6 +29,5 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
         codeBabelLoader,
         tsxBabelLoader,
         cssLoader,
-        // typescriptLoader,
     ];
 };
