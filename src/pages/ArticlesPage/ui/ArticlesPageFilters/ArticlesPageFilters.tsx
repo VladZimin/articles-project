@@ -3,8 +3,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    ArticleSortField,
-    ArticleSortSelectors, ArticleType, ArticleTypeTabs, ArticleView,
+    ArticleSortField, ArticleType, ArticleView,
 } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
@@ -22,6 +21,8 @@ import {
 } from '../../model/selectors/articles';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
+import { ArticleSortSelectors } from '@/features/ArticleSortSelectors';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlesPageFiltersProps {
   className?: string
