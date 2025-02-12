@@ -24,7 +24,7 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
         navigate(getRouteArticles());
     }, [navigate]);
     const onEditArticle = useCallback(() => {
-        navigate(getRouteArticleEdit(article?.id));
+        navigate(getRouteArticleEdit(article?.id ?? ''));
     }, [article?.id, navigate]);
 
     return (
