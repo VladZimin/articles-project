@@ -8,7 +8,7 @@ export interface SelectOptions<T extends string> {
     value: T;
     content: string
 }
-interface AvatarProps<T extends string> {
+interface SelectProps<T extends string> {
     className?: string
     label?: string
     options?: SelectOptions<T>[]
@@ -17,7 +17,7 @@ interface AvatarProps<T extends string> {
     readonly?: boolean
 }
 
-export const Select = <T extends string>(props:AvatarProps<T>) => {
+export const Select = <T extends string>(props:SelectProps<T>) => {
     const {
         className,
         label,
