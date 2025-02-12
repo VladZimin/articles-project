@@ -8,56 +8,59 @@ import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { RoutePath } from '@/shared/const/router';
+import {
+    getRouteAbout, getRouteMain, getRouteProfile, getRouteArticles, getRouteArticleDetails,
+    getRouteArticleCreate, getRouteForbidden, getRouteArticleEdit, getRouteAdmin,
+} from '@/shared/const/router';
 import { AppRouteProps } from '@/shared/types/router';
 
 export const routeConfig: AppRouteProps[] = [
     {
-        path: RoutePath.main,
+        path: getRouteMain(),
         element: <MainPage />,
     },
     {
-        path: RoutePath.about,
+        path: getRouteAbout(),
         element: <AboutPage />,
     },
     {
-        path: `${RoutePath.profile}:id`,
+        path: getRouteProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     {
-        path: RoutePath.article,
+        path: getRouteArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     {
-        path: RoutePath.adminPanel,
+        path: getRouteAdmin(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRole.ADMIN, UserRole.MANAGER],
     },
     {
-        path: `${RoutePath.articleDetails}:id`,
+        path: getRouteArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     {
-        path: RoutePath.articleCreate,
+        path: getRouteArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     {
-        path: RoutePath.articleEdit,
+        path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     {
-        path: RoutePath.forbidden,
+        path: getRouteForbidden(),
         element: <ForbiddenPage />,
         authOnly: true,
     },
     {
-        path: RoutePath.not_found,
+        path: '*',
         element: <NotFoundPage />,
     },
 ];

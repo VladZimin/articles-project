@@ -12,7 +12,7 @@ import cls from './ArticleListItem.module.scss';
 import {
     Article, ArticleTextBlock,
 } from '../../model/types/article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string
@@ -54,7 +54,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     <img src={article.img} alt={article.title} className={cls.img} />
                     {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                     <div className={cls.footer}>
-                        <AppLink to={RoutePath.articleDetails + article.id}>
+                        <AppLink to={getRouteArticleDetails(article.id)}>
                             <Button>
                                 {t('Читать далее')}
                                 ...
@@ -69,7 +69,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     return (
         <AppLink
             target={target}
-            to={RoutePath.articleDetails + article.id}
+            to={getRouteArticleDetails(article.id)}
             className={classNames(cls.SMALL, {}, [className])}
         >
             <Card>

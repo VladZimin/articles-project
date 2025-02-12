@@ -15,7 +15,7 @@ import { selectLoginIsLoading } from '../../model/selectors/selectLoginIsLoading
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAbout } from '@/shared/const/router';
 
 export interface LoginFormProps {
     className?: string
@@ -44,7 +44,7 @@ const LoginForm = memo(({ className, onSuccess }:LoginFormProps) => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess?.();
-            navigate(RoutePath.about);
+            navigate(getRouteAbout());
         }
     }, [dispatch, username, password, onSuccess, navigate]);
 
