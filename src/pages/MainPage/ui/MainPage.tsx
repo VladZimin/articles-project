@@ -7,7 +7,7 @@ const MainPage = memo(() => {
 
     return (
         <Page>
-            {t('Главная страницаd')}
+            {t('Главная страница')}
         </Page>
     );
 });
