@@ -8,6 +8,7 @@ const MainPage = memo(() => {
     return (
         <Page>
             {t('Главная страница')}
+            !!!!
         </Page>
     );
 });

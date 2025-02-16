@@ -1,13 +1,23 @@
 import path from 'path';
-import { BuildEnv, BuildPaths } from './config/build/types/config';
+import { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 
+const getApiUrl = (mode: BuildMode, apiUrl?: string) => {
+    if (apiUrl) {
+        return apiUrl;
+    }
+    if (mode === 'production') {
+        return '/api';
+    }
+    return 'http://localhost:8000';
+};
+
 export default (env: BuildEnv) => {
-    const mode = env.mode || 'development';
-    const PORT = env.port || 3000;
+    const mode = env?.mode || 'development';
+    const PORT = env?.port || 3000;
 
     const isDev = mode === 'development';
-    const apiURL = env.apiURL || 'http://localhost:8000';
+    const apiURL = getApiUrl(mode, env.apiURL);
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         build: path.resolve(__dirname, 'build'),
