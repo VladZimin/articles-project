@@ -639,12 +639,18 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true
+      },
       "avatar": "https://cdn3.iconfinder.com/data/icons/roles-computer-it/128/front-end_developer-2-1024.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
+      "features": {
+        "isArticleRatingEnabled": false
+      },
       "roles": [
         "USER"
       ],
@@ -654,6 +660,9 @@
       "id": "3",
       "username": "manager",
       "password": "123",
+      "features": {
+        "isArticleRatingEnabled": true
+      },
       "roles": [
         "MANAGER"
       ],
