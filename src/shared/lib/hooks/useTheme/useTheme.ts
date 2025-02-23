@@ -1,17 +1,16 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import { Theme } from '../../../const/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localStorage';
 
 interface useThemeResult {
   theme: Theme,
-  toggleTheme: () => void
+  toggleTheme: (saveAction?: (theme: Theme) => void) => void
 }
 
 export const useTheme = (): useThemeResult => {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    const toggleTheme = () => {
+    const toggleTheme = (saveAction?: (theme: Theme) => void) => {
         let newTheme: Theme;
         switch (theme) {
         case Theme.DARK:
@@ -27,7 +26,7 @@ export const useTheme = (): useThemeResult => {
             newTheme = Theme.LIGHT;
         }
         setTheme?.(newTheme);
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+        saveAction?.(newTheme);
     };
     return { theme: theme || Theme.LIGHT, toggleTheme };
 };

@@ -3,8 +3,8 @@ import { createReducerManager } from './reducerManager';
 import { $api } from '@/shared/api/api';
 import { scrollRestorationReducer } from '@/features/ScrollRestoration';
 import { rtkQueryApi } from '@/shared/api/rtkQueryApi';
-import { userReducer } from '../../../../entities/User';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
+import { userReducer } from '@/entities/User';
 
 export const createReduxStore = (
     initialState?: StateSchema,
