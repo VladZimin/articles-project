@@ -10,8 +10,9 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { articleDetailsPageReducer } from '../../model/slice';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/ArticleRating';
-import { toggleFeatures } from '@/shared/lib/features/toggleFeatures';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { ArticleDetails } from '@/entities/Article';
+import { Card } from '@/shared/ui/Card';
 
 export interface ArticlesPageProps {
     className?: string
@@ -33,17 +34,16 @@ const ArticleDetailsPage = ({ className }:ArticlesPageProps) => {
         );
     }
 
-    const Rating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => undefined,
-    });
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
-                {Rating}
+                <ToggleFeaturesComponent
+                    name="isArticleRatingEnabled"
+                    on={<ArticleRating articleId={id} />}
+                    off={<Card>{t('Оценка статей скоро появится')}</Card>}
+                />
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} className={cls.commentTitle} />
             </Page>

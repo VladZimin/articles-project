@@ -659,7 +659,11 @@
       "roles": [
         "USER"
       ],
-      "avatar": "https://avatars.mds.yandex.net/i?id=c4b126d0d6ca7d915252f911e7dd6996_l-9106864-images-thumbs&n=13"
+      "avatar": "https://avatars.mds.yandex.net/i?id=c4b126d0d6ca7d915252f911e7dd6996_l-9106864-images-thumbs&n=13",
+      "jsonSettings": {
+        "isArticlePageWasOpened": true,
+        "theme": "app-green-theme"
+      }
     },
     {
       "id": "3",

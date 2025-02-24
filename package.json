@@ -22,7 +22,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
-    "prepare": "husky"
+    "prepare": "husky",
+    "remove-feature": "ts-node ./scripts/refactoring/removeFeature.ts"
   },
   "resolutions": {
     "some-dependency/@storybook/react": "7.6.19"
