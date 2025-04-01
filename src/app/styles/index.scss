@@ -1,8 +1,8 @@
 @use "reset";
 @use "variables/global";
-@use "themes/normal";
+@use "themes/other";
+@use "themes/light";
 @use "themes/dark";
-@use "themes/green";
 
 .app,
 .app-modal,
@@ -14,6 +14,13 @@
 .app {
     background: var(--bg-color);
     min-height: 100vh;
+}
+
+.app-redesigned {
+    background: var(--bg-redesinged);
+    min-height: 100vh;
+    font: var(--font-m-redesigned);
+    color: var(--text-redesinged);
 }
 
 .content-page {

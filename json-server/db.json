@@ -640,7 +640,8 @@
         "ADMIN"
       ],
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
       },
       "avatar": "https://cdn3.iconfinder.com/data/icons/roles-computer-it/128/front-end_developer-2-1024.png",
       "jsonSettings": {
@@ -662,7 +663,7 @@
       "avatar": "https://avatars.mds.yandex.net/i?id=c4b126d0d6ca7d915252f911e7dd6996_l-9106864-images-thumbs&n=13",
       "jsonSettings": {
         "isArticlePageWasOpened": true,
-        "theme": "app-green-theme"
+        "theme": "app-light-theme"
       }
     },
     {

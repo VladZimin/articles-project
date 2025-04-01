@@ -11,6 +11,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import cls from './Page.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps {
     className?: string
@@ -41,8 +42,14 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
         }));
     }, 1000);
 
+    const mainClassname = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.PageRedesigned,
+        off: () => cls.Page,
+    });
+
     return (
-        <main onScroll={onScroll} ref={wrapperRef} className={classNames(cls.Page, {}, [className])}>
+        <main onScroll={onScroll} ref={wrapperRef} className={classNames(mainClassname, {}, [className])}>
             {children}
             {
                 onScrollEnd && <div className={cls.trigger} ref={triggerRef} />

@@ -41,3 +41,15 @@
         margin: 0;
     }
 }
+
+// redesigned
+.SidebarRedesigned {
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width-redesigned);
+    border-radius: 32px;
+    background: var(--light-bg-redesinged);
+}
+
+.appLogo {
+    padding-top: 20px;
+}
