@@ -12,7 +12,7 @@ import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { ArticleDetails } from '@/entities/Article';
-import { Card } from '@/shared/ui/Card';
+import { Card } from '@/shared/ui/deprecated/Card';
 
 export interface ArticlesPageProps {
     className?: string

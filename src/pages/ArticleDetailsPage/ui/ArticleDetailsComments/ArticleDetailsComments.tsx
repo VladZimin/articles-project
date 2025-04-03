@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { TextSize } from '@/shared/ui/deprecated/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Loader, Text } from '@/shared/ui';
-import { TextSize } from '@/shared/ui/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

@@ -2,17 +2,17 @@ import {
     memo, ReactNode, useMemo, useState,
 } from 'react';
 import { useSelector } from 'react-redux';
+import { ButtonSize } from '@/shared/ui/deprecated/Button';
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui';
-import { ButtonSize } from '@/shared/ui/Button';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
     className?: string
