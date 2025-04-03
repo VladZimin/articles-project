@@ -1,6 +1,6 @@
 import path from 'path';
-import { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
-import { buildWebpackConfig } from './config/build/buildWebpackConfig';
+import { BuildEnv, BuildMode, BuildPaths } from './config/builds/types/config';
+import { buildWebpackConfig } from './config/builds/buildWebpackConfig';
 
 const getApiUrl = (mode: BuildMode, apiUrl?: string) => {
     if (apiUrl) {
