@@ -3,7 +3,6 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { ButtonSize } from '@/shared/ui/deprecated/Button';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui';
 import { VStack } from '@/shared/ui/deprecated/Stack';
@@ -13,6 +12,8 @@ import cls from './Sidebar.module.scss';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
+import { AppLogo, Icon } from '@/shared/ui/redesigned';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 interface SidebarProps {
     className?: string
@@ -20,7 +21,7 @@ interface SidebarProps {
 
 interface DeprecatedSidebarProps extends SidebarProps {
     collapsed: boolean
-    onToggle: VoidFunction
+    onToggle: () => void
     items: ReactNode[]
 }
 
@@ -59,9 +60,22 @@ function RedesignedSidebar({
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.SidebarRedesigned, { [cls.collapsedRedesigned]: collapsed }, [className])}
         >
-            <AppLogo className={cls.appLogo} />
+            <Icon
+                Svg={ArrowIcon}
+                onClick={onToggle}
+                className={cls.collapsedBtn}
+                clickable
+            />
+            <AppLogo size={collapsed ? 30 : 50} className={cls.appLogo} />
+            <VStack role="navigation" gap="8" className={cls.items}>
+                {items}
+            </VStack>
+            <div className={cls.switchers} role="navigation">
+                <ThemeSwitcher />
+                <LangSwitcher short={collapsed} className={cls.lang} />
+            </div>
         </aside>
     );
 }

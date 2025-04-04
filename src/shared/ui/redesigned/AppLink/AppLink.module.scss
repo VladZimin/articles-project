@@ -1,0 +1,15 @@
+.primary {
+    color: var(--text-redesinged);
+
+    &:hover {
+        color: var(--accent-redesinged);
+    }
+}
+
+.red {
+    color: var(--cancel-redesinged);
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
