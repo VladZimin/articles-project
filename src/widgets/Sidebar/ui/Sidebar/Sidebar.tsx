@@ -5,14 +5,13 @@ import { useSelector } from 'react-redux';
 import { ButtonSize } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack, AppLogo, Icon } from '@/shared/ui/redesigned';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
-import { AppLogo, Icon } from '@/shared/ui/redesigned';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 interface SidebarProps {

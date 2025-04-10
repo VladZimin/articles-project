@@ -1,0 +1,11 @@
+.content {
+    position: absolute;
+    background-color: var(--dark-bg-redesinged);
+    z-index: 10000;
+    box-shadow: 4px 4px 8px var(--dark-bg-redesinged);
+    min-width: 100%;
+}
+
+.option {
+    padding: 10px 20px;
+}

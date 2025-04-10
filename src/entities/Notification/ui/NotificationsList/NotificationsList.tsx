@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { useGetNotifications } from '../../api/notificationApi';

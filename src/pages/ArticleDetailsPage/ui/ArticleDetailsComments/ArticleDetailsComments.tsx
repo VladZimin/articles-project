@@ -3,7 +3,7 @@ import { Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextSize } from '@/shared/ui/deprecated/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned';
 import { Loader, Text } from '@/shared/ui';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';

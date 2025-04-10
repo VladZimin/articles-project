@@ -4,7 +4,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Loader, Text } from '@/shared/ui';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { VStack, HStack } from '@/shared/ui/deprecated/Stack';
+import { VStack, HStack } from '@/shared/ui/redesigned';
 import { Countries, CountrySelect } from '../../../../entities/Country';
 import { Currency, CurrencySelect } from '../../../../entities/Currency';
 import cls from './ProfileCard.module.scss';

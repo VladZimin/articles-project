@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
-import { Overlay } from '../Overlay/Overlay';
+import { Overlay } from '../../redesigned';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';

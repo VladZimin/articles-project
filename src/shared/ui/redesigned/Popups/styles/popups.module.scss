@@ -1,0 +1,46 @@
+.popup {
+    position: relative;
+}
+
+.content {
+    border-radius: 18px;
+    border: 1px solid var(--accent-redesinged);
+    overflow: hidden;
+}
+
+.trigger {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.contentTopLeft {
+    bottom: 100%;
+    right: 0;
+}
+
+.contentTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.contentBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.contentBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.active {
+    background-color: var(--light-bg-redesinged);
+}
+
+.disabled {
+    opacity: 0.7;
+}

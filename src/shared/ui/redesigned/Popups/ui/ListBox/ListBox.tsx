@@ -43,7 +43,9 @@ export function ListBox(props: ListBoxProps) {
                         {value ?? defaultValue}
                     </Button>
                 </HListBox.Button>
-                <HListBox.Options className={classNames(cls.content, {}, [directionClasses[direction]])}>
+                <HListBox.Options
+                    className={classNames(cls.content, {}, [popupsCls.content, directionClasses[direction]])}
+                >
                     {items.map((item) => (
                         <HListBox.Option
                             key={item.value}

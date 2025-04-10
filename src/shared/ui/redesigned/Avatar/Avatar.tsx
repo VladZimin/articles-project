@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
-import { AppImage } from '../../redesigned/AppImage';
+import { AppImage } from '../AppImage';
 import { Skeleton } from '../Skeleton';
 import { Icon } from '../Icon';
 import UserSvg from '../../../assets/icons/user-filled.svg';
@@ -29,7 +29,7 @@ export const Avatar = (props:AvatarProps) => {
     };
 
     const fallback = <Skeleton height={size} width={size} border="50%" />;
-    const errorFallback = <Icon Svg={UserSvg} height={size} width={size} inverted={fallbackInverted} />;
+    const errorFallback = <Icon Svg={UserSvg} height={size} width={size} />;
     return (
         <AppImage
             fallback={fallback}

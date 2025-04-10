@@ -1,0 +1,16 @@
+.content {
+    position: absolute;
+    background-color: var(--dark-bg-redesinged);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    width: 100%;
+    cursor: pointer;
+    color: var(--text-redesinged);
+}

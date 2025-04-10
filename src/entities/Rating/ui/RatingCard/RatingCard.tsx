@@ -6,7 +6,7 @@ import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import {
     Button, ButtonTheme, Modal, Text,
 } from '@/shared/ui';
-import { VStack, HStack } from '@/shared/ui/deprecated/Stack';
+import { VStack, HStack } from '@/shared/ui/redesigned';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
 

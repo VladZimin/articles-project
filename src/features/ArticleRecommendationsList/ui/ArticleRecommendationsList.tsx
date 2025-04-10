@@ -3,7 +3,7 @@ import { TextSize } from '@/shared/ui/deprecated/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui';
 import { ArticleList } from '@/entities/Article';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned';
 import { useArticleRecommendationsList } from '../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {

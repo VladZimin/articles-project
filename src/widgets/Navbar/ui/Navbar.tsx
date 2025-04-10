@@ -7,7 +7,7 @@ import {
     AppLink, AppLinkTheme, Button, ButtonTheme, Text,
 } from '@/shared/ui';
 import { LoginModal } from '@/features/AuthByUsername';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { getUserAuthData } from '../../../entities/User';

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useCallback, useMemo } from 'react';
 import { TextTheme } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Currency } from '@/entities/Currency';

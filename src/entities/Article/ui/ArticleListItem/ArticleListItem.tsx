@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget } from 'react';
+import { AppImage } from '@/shared/ui/redesigned';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Button, Text } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
@@ -13,7 +14,6 @@ import {
     Article, ArticleTextBlock,
 } from '../../model/types/article';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/deprecated/AppImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface ArticleListItemProps {
