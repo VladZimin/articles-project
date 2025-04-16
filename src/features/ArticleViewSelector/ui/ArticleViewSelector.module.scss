@@ -1,3 +1,13 @@
 .notSelected {
     fill: var(--secondary-color);
 }
+
+// redesigned
+.ViewSelectorRedesigned {
+    display: flex;
+    gap: 8px;
+
+    .notSelected {
+        color: var(--light-bg-redesinged);
+    }
+}

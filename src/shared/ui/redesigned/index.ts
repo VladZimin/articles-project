@@ -9,3 +9,5 @@ export { Text } from './Text';
 export { Avatar } from './Avatar';
 export { Skeleton } from './Skeleton';
 export { Card } from './Card';
+export { Tabs } from './Tabs';
+export { Input } from './Input';

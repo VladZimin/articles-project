@@ -29,7 +29,11 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
     useInfiniteScroll({
         callback: onScrollEnd,
         triggerRef,
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            off: () => wrapperRef,
+            on: () => undefined,
+        }),
     });
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;

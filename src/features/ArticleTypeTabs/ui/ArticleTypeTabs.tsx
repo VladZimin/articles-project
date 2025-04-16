@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Tabs, TabType } from '@/shared/ui/deprecated/Tabs';
+import { Tabs as TabsDeprecated, TabType } from '@/shared/ui/deprecated/Tabs';
 import { ArticleType } from '@/entities/Article';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
+import { Tabs } from '@/shared/ui/redesigned';
 
 interface ArticleTypeTabsProps {
     className?: string
@@ -15,11 +17,11 @@ export const ArticleTypeTabs = ({ className, tabValue, onChangeTab }:ArticleType
     const tabsType = useMemo<TabType[]>(() => [
         {
             value: ArticleType.ALL,
-            content: t('Все'),
+            content: t('Все статьи'),
         },
         {
             value: ArticleType.IT,
-            content: t('IT'),
+            content: t('Программирование'),
         },
         {
             value: ArticleType.SCIENCE,
@@ -36,11 +38,25 @@ export const ArticleTypeTabs = ({ className, tabValue, onChangeTab }:ArticleType
     }, [onChangeTab]);
 
     return (
-        <Tabs
-            className={classNames('', {}, [className])}
-            value={tabValue}
-            tabs={tabsType}
-            onChangeTab={onTabClick}
+        <ToggleFeaturesComponent
+            name="isAppRedesigned"
+            on={(
+                <Tabs
+                    className={classNames('', {}, [className])}
+                    value={tabValue}
+                    tabs={tabsType}
+                    onChangeTab={onTabClick}
+                    direction="column"
+                />
+            )}
+            off={(
+                <TabsDeprecated
+                    className={classNames('', {}, [className])}
+                    value={tabValue}
+                    tabs={tabsType}
+                    onChangeTab={onTabClick}
+                />
+            )}
         />
     );
 };
