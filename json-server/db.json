@@ -645,7 +645,7 @@
       },
       "avatar": "https://cdn3.iconfinder.com/data/icons/roles-computer-it/128/front-end_developer-2-1024.png",
       "jsonSettings": {
-        "theme": "app-light-theme",
+        "theme": "app-dark-theme",
         "isFirstVisit": true,
         "isArticlePageWasOpened": true
       }

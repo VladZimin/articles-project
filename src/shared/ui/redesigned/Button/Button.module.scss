@@ -1,13 +1,27 @@
 .Button {
-    padding: 6px 15px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
     cursor: pointer;
-    color: var(--primary-color);
+    color: var(--text-redesinged);
+
+    svg {
+        color: var(--hint-redesinged);
+    }
 
     &:hover {
         opacity: 0.7;
         fill-opacity: 70%;
         stroke-opacity: 70%;
+
+        svg {
+            color: var(--accent-redesinged);
+        }
     }
+}
+
+.withAddon {
+    padding: 0 16px;
 }
 
 .outline {
@@ -20,7 +34,6 @@
     background: var(--light-bg-redesinged);
     border: none;
     outline: none;
-    padding: 8px 16px;
     border-radius: 34px;
 }
 
