@@ -35,8 +35,8 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
     }, [items, value]);
 
     return (
-        <HStack gap="4">
-            {label && <span>{`${label}>`}</span>}
+        <HStack gap="8">
+            {label && <span>{label}</span>}
             <HListBox
                 as="div"
                 value={value}

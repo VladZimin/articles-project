@@ -3,18 +3,23 @@ import React, {
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
+import { Text } from '../Text';
+import { HStack } from '../Stack';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'size'>
+type InputSize = 's' | 'm' | 'l'
 
 interface InputProps extends HTMLInputProps{
     className?: string
     value?: string | number
     onChange?: (value: string) => void
     placeholder?: string
+    label?: string
     autoFocus?: boolean
     readonly?: boolean
     addonLeft?: ReactNode
     addonRight?: ReactNode
+    size?: InputSize
 }
 
 export const Input = memo((props: InputProps) => {
@@ -28,6 +33,8 @@ export const Input = memo((props: InputProps) => {
         readonly,
         addonLeft,
         addonRight,
+        size = 'm',
+        label,
         ...otherProps
     } = props;
     const inputRef = useRef<HTMLInputElement>(null);
@@ -57,8 +64,9 @@ export const Input = memo((props: InputProps) => {
         [cls.withAddonLeft]: Boolean(addonLeft),
         [cls.withAddonRight]: Boolean(addonRight),
     };
-    return (
-        <div className={classNames(cls.InputWrapper, mods, [className])}>
+
+    const input = (
+        <div className={classNames(cls.InputWrapper, mods, [cls[size], className])}>
             {addonLeft}
             <input
                 ref={inputRef}
@@ -75,4 +83,15 @@ export const Input = memo((props: InputProps) => {
             {addonRight}
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack gap="8" max>
+                <Text text={label} />
+                {input}
+            </HStack>
+
+        );
+    }
+    return input;
 });
