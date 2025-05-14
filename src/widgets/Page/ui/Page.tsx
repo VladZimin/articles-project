@@ -11,7 +11,6 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import cls from './Page.module.scss';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps {
     className?: string
@@ -29,11 +28,7 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
     useInfiniteScroll({
         callback: onScrollEnd,
         triggerRef,
-        wrapperRef: toggleFeatures({
-            name: 'isAppRedesigned',
-            off: () => wrapperRef,
-            on: () => undefined,
-        }),
+        wrapperRef: undefined,
     });
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
@@ -46,11 +41,7 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
         }));
     }, 1000);
 
-    const mainClassname = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.PageRedesigned,
-        off: () => cls.Page,
-    });
+    const mainClassname = cls.PageRedesigned;
 
     return (
         <main onScroll={onScroll} ref={wrapperRef} className={classNames(mainClassname, {}, [className])}>
