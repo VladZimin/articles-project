@@ -12,6 +12,7 @@ interface TextProps {
   className?: string
   title?: string
   text?: string
+  bold?: boolean
   variant?: TextVariant
   align?: TextAlign
   size?: TextSize
@@ -28,13 +29,14 @@ export const Text = memo((props: TextProps) => {
         className,
         title,
         text,
+        bold,
         variant = 'primary',
         align = 'left',
         size = 'm',
     } = props;
     const HeaderTag = mapSizeToHeaderTag[size];
     return (
-        <div className={classNames(cls.Text, {}, [className, cls[variant], cls[align], cls[size]])}>
+        <div className={classNames(cls.Text, { [cls.bold]: bold }, [className, cls[variant], cls[align], cls[size]])}>
             {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
             {text && <p className={cls.text}>{text}</p>}
         </div>

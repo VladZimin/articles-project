@@ -12,8 +12,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     variant?: ButtonVariant
     size?: ButtonSize
     fullwidth?: boolean
-  addonLeft?: ReactNode
-  addonRight?: ReactNode
+    addonLeft?: ReactNode
+    addonRight?: ReactNode
 }
 
 export const Button = memo((props: ButtonProps) => {

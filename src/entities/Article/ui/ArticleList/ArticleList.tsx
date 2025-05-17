@@ -8,6 +8,7 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
+import { VStack } from '@/shared/ui/redesigned';
 
 interface ArticleListProps {
     className?: string
@@ -49,12 +50,14 @@ export const ArticleList = (props: ArticleListProps) => {
     }
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles?.map(renderArticle)}
-            {isLoading && (
-                <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                    {getSkeleton(view)}
-                </div>
-            )}
+            <VStack max gap="16">
+                {articles?.map(renderArticle)}
+                {isLoading && (
+                    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                        {getSkeleton(view)}
+                    </div>
+                )}
+            </VStack>
         </div>
     );
 };
