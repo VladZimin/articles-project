@@ -8,7 +8,8 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
-import { VStack } from '@/shared/ui/redesigned';
+import { ToggleFeaturesComponent } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned';
 
 interface ArticleListProps {
     className?: string
@@ -49,15 +50,29 @@ export const ArticleList = (props: ArticleListProps) => {
         );
     }
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            <VStack max gap="16">
-                {articles?.map(renderArticle)}
-                {isLoading && (
-                    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                        {getSkeleton(view)}
-                    </div>
-                )}
-            </VStack>
-        </div>
+        <ToggleFeaturesComponent
+            name="isAppRedesigned"
+            on={(
+                <HStack
+                    gap="16"
+                    wrap="wrap"
+                    justify="center"
+                    className={className}
+                >
+                    {articles?.map(renderArticle)}
+                    {isLoading && getSkeleton(view)}
+                </HStack>
+            )}
+            off={(
+                <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                    {articles?.map(renderArticle)}
+                    {isLoading && (
+                        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                            {getSkeleton(view)}
+                        </div>
+                    )}
+                </div>
+            )}
+        />
     );
 };

@@ -12,7 +12,7 @@ interface ArticleRecommendationsListProps {
 
 export const ArticleRecommendationsList = ({ className }:ArticleRecommendationsListProps) => {
     const { t } = useTranslation('articles');
-    const { data: articles, isLoading } = useArticleRecommendationsList(7);
+    const { data: articles, isLoading } = useArticleRecommendationsList(4);
 
     return (
         <VStack gap="8" className={classNames('', {}, [className])}>
