@@ -29,19 +29,19 @@ export const App = () => {
             name="isAppRedesigned"
             on={(
                 <Suspense fallback="">
-                    <div className={classNames('app-redesigned', {}, [theme])}>
+                    <div id="app" className={classNames('app-redesigned', {}, [theme])}>
                         <MainLayout
                             content={<AppRouter />}
                             header={<Navbar />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>123123</div>}
+                            toolbar={<div />}
                         />
                     </div>
                 </Suspense>
             )}
             off={(
                 <Suspense fallback="">
-                    <div className={classNames('app', {}, [theme])}>
+                    <div id="app" className={classNames('app', {}, [theme])}>
                         <Navbar />
                         <div className="content-page">
                             <Sidebar />

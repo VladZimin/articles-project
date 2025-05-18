@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
@@ -7,7 +8,6 @@ import NotificationSvgDeprecated from '@/shared/assets/icons/notification-20-20.
 import NotificationSvg from '@/shared/assets/icons/notification.svg';
 import { NotificationsList } from '@/entities/Notification';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import cls from './NotificationButton.module.scss';
 import { ToggleFeaturesComponent } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned';

@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Modal, Text } from '@/shared/ui';
+import { Text } from '@/shared/ui';
 import { getJsonSettings, saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 
 export const ArticlePageGreeting = () => {
     const { t } = useTranslation('articles');
