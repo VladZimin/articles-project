@@ -56,7 +56,6 @@ export const ArticleList = (props: ArticleListProps) => {
                 <HStack
                     gap="16"
                     wrap="wrap"
-                    justify="center"
                     className={className}
                 >
                     {articles?.map(renderArticle)}

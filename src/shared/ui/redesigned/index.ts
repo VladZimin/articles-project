@@ -11,3 +11,4 @@ export { Skeleton } from './Skeleton';
 export { Card } from './Card';
 export { Tabs } from './Tabs';
 export { Input } from './Input';
+export { Code } from './Code';

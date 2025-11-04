@@ -21,7 +21,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
 
     const userInfo = (
         <>
-            <Avatar src={article.user.avatar} size={32} />
+            <Avatar src={article.user.avatar} size={32} className={cls.avatar} />
             <Text text={article.user.username} bold />
         </>
     );
@@ -75,9 +75,9 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.SMALL, {}, [className])}
         >
-            <Card className={cls.card}>
+            <Card className={cls.card} padding="0">
                 <AppImage
-                    fallback={<Skeleton height={200} width={200} />}
+                    fallback={<Skeleton height={200} width="100%" />}
                     src={article.img}
                     alt={article.title}
                     className={cls.img}
