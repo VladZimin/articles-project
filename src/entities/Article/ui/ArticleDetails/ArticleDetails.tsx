@@ -74,7 +74,6 @@ export const ArticleDetails = ({ className, id }:ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const error = useSelector(getArticleDetailsError);
-    const article = useSelector(getArticleDetailsData);
     let content;
 
     useInitialEffect(() => {
